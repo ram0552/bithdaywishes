@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bunny0552</title> ❤️</title>
+    <style>
+        /* Full-Screen Background */
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: radial-gradient(circle, #1e3c72, #2a5298, #4a90e2);
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+
+        /* 3D Birthday Card */
+        .card {
+            position: relative;
+            width: 90%;
+            max-width: 350px;
+            height: auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            padding: 20px;
+            transform-style: preserve-3d;
+            transition: transform 1.5s ease-in-out;
+        }
+
+        .card:hover {
+            transform: rotateY(360deg);
+        }
+
+        /* Profile Image */
+        .profile-img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        /* Neon Glow Text */
+        h1 {
+            font-size: 24px;
+            color: #0f34c6;
+            text-shadow: 0 0 10px #ff4e50, 0 0 20px #ff7eb3;
+        }
+
+        p {
+            font-size: 16px;
+            color: #333333;
+            margin-bottom: 15px;
+        }
+
+        /* Clickable Button */
+        .btn {
+            background: linear-gradient(90deg, #75edff, #ff7efb);
+            border: none;
+            padding: 15px 25px;
+            color: white;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: linear-gradient(90deg, #ff7eb3, #ff758c);
+            transform: scale(1.1);
+        }
+
+        /* Falling Petals */
+        .petal {
+            position: absolute;
+            font-size: 24px;
+            color: pink;
+            animation: fallPetals 5s infinite ease-in-out;
+        }
+
+        @keyframes fallPetals {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Falling Petals -->
+    <div id="petals-container"></div>
+
+    <!-- Birthday Card -->
+    <div class="card">
+        <!-- Her Image -->
+        <img src="https://i.ibb.co/PGFTxd6m/1000112078.jpg" alt="Her Image" class="profile-img">
+        
+        <h1>🎉 Happy Birthday Bunny! ❤️</h1>
+        <p>You are my secret world, my joy, and my happiness. I hope your birthday is as magical as you! 🎂💖</p>
+
+        <!-- Magic Button -->
+        <button class="btn" onclick="showSurprise()">💌 Tap for a MSG!</button>
+    </div>
+
+    <!-- Romantic Music -->
+    <audio id="birthdaySong">
+        <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        // Petal Animation
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.classList.add('petal');
+            petal.innerHTML = '💖';
+            document.getElementById('petals-container').appendChild(petal);
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.animationDuration = Math.random() * 3 + 2 + 's';
+            setTimeout(() => petal.remove(), 5000);
+        }
+
+        setInterval(createPetal, 500);
+
+        // Play Music on First Tap
+        function showSurprise() {
+            document.getElementById("birthdaySong").play();
+            alert("🎊 You make every moment feel like magic.🎊");
+        }
+    </script>
+</body>
+</html>
